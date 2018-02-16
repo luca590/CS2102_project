@@ -1,18 +1,15 @@
 defmodule ServerCode do
-  @moduledoc """
-  Documentation for ServerCode.
-  """
+  use Application
+  require Logger    #diff btwn use and require??
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    children = [
+      Plug.Adapters.Cowboy.child_spec(:http, ServerCode.Router, [], port: 8000)
+    ]
 
-  ## Examples
+    Logger.info "Application is running!"
 
-      iex> ServerCode.hello
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 end
+
