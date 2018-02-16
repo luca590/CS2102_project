@@ -1,6 +1,6 @@
 # ServerCode
 
-** This file contains the server side code for the CS2102 project. Integration with the front and and databse will likely happen in this folder**
+**This file contains the server side code for the CS2102 project. Integration with the front and and databse will likely happen in this folder**
 
 ## Installation
 
